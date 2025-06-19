@@ -1,0 +1,41 @@
+.translate-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.language-selectors {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.output {
+  margin-top: 20px;
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 5px;
+}

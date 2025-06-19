@@ -1,0 +1,27 @@
+/* History.css */
+.history-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.history-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history-container li {
+  background: #f4f4f4;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  line-height: 1.6;
+}
