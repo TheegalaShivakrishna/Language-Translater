@@ -1,11 +1,17 @@
 const express = require('express');
 const Translation = require('../models/Translation.js');
+const { protect } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
 // GET /api/history/:userId — Get history for a specific user
-router.get('/:userId', async (req, res) => {
+router.get('/:userId', protect, async (req, res) => {
   const { userId } = req.params;
+
+  // Ensure users can only access their own history
+  if (req.user._id.toString() !== userId) {
+    return res.status(403).json({ message: 'Access denied' });
+  }
 
   try {
     const history = await Translation.find({ user: userId }).sort({ createdAt: -1 });

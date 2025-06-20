@@ -3,7 +3,7 @@ const { translateText, getTranslations } = require('../controllers/translationCo
 const { protect } = require('../middleware/authMiddleware'); // if you're using JWT
 
 const router = express.Router();
-
+// console.log('Route hit') ;
 router.post('/', protect, translateText);
 router.get('/history', protect, getTranslations);
 
