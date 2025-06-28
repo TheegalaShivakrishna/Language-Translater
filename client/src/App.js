@@ -6,31 +6,35 @@ import Translator from './components/Translate';
 import History from './components/History';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute'; // Import it
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <Translator />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/history"
-          element={
-            <PrivateRoute>
-              <History />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <div style={{ minHeight: 'calc(100vh - 120px)' }}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Translator />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <PrivateRoute>
+                <History />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
+      <Footer />
     </Router>
   );
 }
