@@ -48,31 +48,39 @@ function Login() {
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
+      <h2>Welcome Back</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          disabled={loading}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          disabled={loading}
-        />
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            disabled={loading}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            disabled={loading}
+          />
+        </div>
         {error && <p className="error">{error}</p>}
         <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
+          {loading ? 'Signing In...' : 'Sign In'}
         </button>
       </form>
-      <div style={{ marginTop: '20px', textAlign: 'center' }}>
-        <p>Don't have an account? <a href="/register">Register here</a></p>
+      <div className="auth-links">
+        <p>Don't have an account? <a href="/register">Sign up here</a></p>
       </div>
     </div>
   );

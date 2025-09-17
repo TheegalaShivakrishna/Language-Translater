@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Translator from './components/Translate';
 import History from './components/History';
+import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute'; // Import it
 import Footer from './components/Footer';
@@ -16,6 +17,14 @@ function App() {
         <Routes>
           <Route
             path="/"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/translate"
             element={
               <PrivateRoute>
                 <Translator />

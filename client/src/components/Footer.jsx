@@ -9,6 +9,7 @@ const Footer = () => (
       </div>
       <div className="footer-links">
         <a href="/" className="footer-link">Home</a>
+        <a href="/translate" className="footer-link">Translate</a>
         <a href="/history" className="footer-link">History</a>
         <a href="https://github.com/TheegalaShivakrishna" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
       </div>
