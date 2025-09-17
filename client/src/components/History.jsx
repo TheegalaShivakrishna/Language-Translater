@@ -1,12 +1,14 @@
 // History.jsx
 import React, { useEffect, useState } from 'react';
 import API from '../api';
+import Toast from './Toast';
 import './History.css';
 
 function History() {
   const [translations, setTranslations] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -37,10 +39,15 @@ function History() {
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      // You could add a toast notification here
+      setToast({ message: 'Text copied to clipboard!', type: 'success' });
     } catch (err) {
       console.error('Failed to copy text: ', err);
+      setToast({ message: 'Failed to copy text', type: 'error' });
     }
+  };
+
+  const closeToast = () => {
+    setToast(null);
   };
 
   if (loading) {
@@ -48,7 +55,13 @@ function History() {
       <div className="history-container">
         <h2>Translation History</h2>
         <div className="loading">
-          <div className="spinner"></div>
+          <div className="loading-animation">
+            <div className="loading-dots">
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+            </div>
+          </div>
           <p>Loading your translation history...</p>
         </div>
       </div>
@@ -57,6 +70,8 @@ function History() {
 
   return (
     <div className="history-container">
+      {toast && <Toast {...toast} onClose={closeToast} />}
+      
       <h2>Translation History</h2>
       {error && <p className="error">{error}</p>}
       {translations.length === 0 ? (

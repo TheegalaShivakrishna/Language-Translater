@@ -49,47 +49,66 @@ function Register() {
 
   return (
     <div className="auth-container">
-      <h2>Register</h2>
+      <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          disabled={loading}
-          minLength={2}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          disabled={loading}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          disabled={loading}
-          minLength={6}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          disabled={loading}
-        />
+        <div className="form-group">
+          <label htmlFor="name">Full Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Enter your full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            disabled={loading}
+            minLength={2}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            disabled={loading}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Create a password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            disabled={loading}
+            minLength={6}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            placeholder="Confirm your password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            disabled={loading}
+          />
+        </div>
         {error && <p className="error">{error}</p>}
         <button type="submit" disabled={loading}>
-          {loading ? 'Creating Account...' : 'Register'}
+          {loading ? 'Creating Account...' : 'Create Account'}
         </button>
       </form>
+      <div className="auth-links">
+        <p>Already have an account? <a href="/login">Sign in here</a></p>
+      </div>
     </div>
   );
 }

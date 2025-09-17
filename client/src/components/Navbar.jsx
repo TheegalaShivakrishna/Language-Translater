@@ -19,7 +19,8 @@ function Navbar() {
       <ul>
         {isAuthenticated ? (
           <>
-            <li><Link to="/">Translate</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/translate">Translate</Link></li>
             <li><Link to="/history">History</Link></li>
             <li><button onClick={handleLogout}>Logout</button></li>
           </>
